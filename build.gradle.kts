@@ -12,11 +12,14 @@ kotlin {
     implementation(kotlin("stdlib-js"))
 
     implementation(npm("left-pad", "1.3.0"))
+    implementation(npm("socket.io"))
+    implementation(npm("http"))
   }
 }
 
 repositories {
   mavenLocal()
+  jcenter()
 }
 
 
