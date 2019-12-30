@@ -1,11 +1,22 @@
+
+
 //@JsModule("socket.io")
 //external fun
+
+@JsModule("http")
+external object Http {
+    val maxHeaderSize: Number
+    fun createServer(options: dynamic /* tls.SecureContextOptions & tls.TlsOptions & http.ServerOptions */= definedExternally, requestListener: (req: dynamic, res: dynamic) -> dynamic = definedExternally /* null */): dynamic
+}
+
+
+
+
 fun main() {
   println("Kotlin rocks!")
   leftPad("1.3.50", 50)
 
-
-  socketserver()
+  httpserver()
 
 
 
@@ -25,14 +36,17 @@ fun main() {
 }
 
 fun httpserver() {
-  val http = js("require('http')")
+//  val http = js("require('http')")
   val port = 3000
 
+  println(http.STATUS_CODES[404])
+  println(Http.maxHeaderSize)
 
-  val server = http.createServer( { request, response ->
+
+  val server = Http.createServer(requestListener = { request, response ->
     console.log(request.url)
     println("Request received")
-    response.end("Hello Node.js Server!")
+    response.end("Hello Node.js Server!\n")
   })
 
   server.listen(port, { err ->

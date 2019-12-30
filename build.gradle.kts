@@ -14,6 +14,11 @@ kotlin {
     implementation(npm("left-pad", "1.3.0"))
     implementation(npm("socket.io"))
     implementation(npm("http"))
+    implementation(npm("rxjs"))
+    implementation(npm("zone.js", "0.9.1"))
+    implementation(npm("@angular/common"))
+    implementation(npm("@angular/core"))
+//    implementation(npm("@types/node"))
   }
 }
 
